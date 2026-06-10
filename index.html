@@ -200,12 +200,12 @@
 
         .bad-way { border-left-color: #ff3366; } 
 
-        /* --- БЛОК 5: АВТОР --- */
+        /* --- БЛОК 4: АВТОР --- */
         .author-section {
             padding: 80px 0;
             background-color: var(--bg-dark);
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
         .author-content {
@@ -225,7 +225,130 @@
             margin-bottom: 20px;
         }
 
-        /* --- БЛОК 4: ФОРМА ПОДПИСКИ --- */
+        /* --- БЛОК 5: ОТЗЫВЫ ПРАКТИКОВ --- */
+        .reviews-section {
+            padding: 80px 0;
+            background-color: #07253d;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .reviews-title {
+            text-align: center;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .reviews-title span {
+            color: var(--neon-green);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .review-card {
+            background: var(--bg-panel);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 3px solid var(--neon-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .review-author {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .review-niche {
+            font-size: 0.9em;
+            color: var(--neon-green);
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            font-size: 1em;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .review-form-container {
+            max-width: 550px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .review-form-container h3 {
+            margin-top: 0;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+
+        .review-form-container input,
+        .review-form-container textarea {
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+            font-family: 'Montserrat', Arial, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .review-form-container textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .review-form-container input:focus,
+        .review-form-container textarea:focus {
+            outline: none;
+            border-color: var(--neon-green);
+            background: rgba(0, 255, 204, 0.05);
+        }
+
+        /* --- БЛОК ДЛЯ БАННЕРА --- */
+        .banner-section {
+            padding: 60px 0 20px 0;
+            background-color: var(--bg-dark);
+            text-align: center;
+        }
+
+        .banner-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border: 2px solid rgba(0, 255, 204, 0.4);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.15);
+        }
+
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* --- БЛОК 6: ФОРМА ПОДПИСКИ --- */
         .cta-section {
             background: linear-gradient(135deg, #051624 0%, #0a2740 100%);
             padding: 80px 0;
@@ -296,7 +419,7 @@
         }
 
         @media (max-width: 768px) {
-            .modern-form-container { padding: 30px 20px; }
+            .modern-form-container, .review-form-container { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -329,7 +452,7 @@
         <div class="container cards-wrapper">
             <div class="card bad-way">
                 <h3>Проблема: Симулятор бурной деятельности</h3>
-                <p>Классические маркетинговые формулы вроде AIDA для практиков — это симулятор бурной деятельности и пластиковый бред. Малому бизнесу нужен рабочий инструмент, а не лекции по маркетингу.</p>
+                <p>Классические маркетинговые формулы вроде AIDA для практиков — это симулятор бурной деятельности и plastic-бред. Малому бизнесу нужен рабочий инструмент, а не лекции по маркетингу.</p>
             </div>
             <div class="card">
                 <h3>Решение: Инженерный подход</h3>
@@ -345,8 +468,45 @@
                 Автор проекта <strong>«Уверен и Готов»</strong> и владелец реальной мастерской электроники «Армавиртелеремонт». За плечами — <strong>20 лет практического опыта</strong> телеремонта. 
             </p>
             <p class="author-text">
-                Я не учу вас маркетингу и не продаю воздух. Я показывает, как скрестить многолетнюю практику на верстаке с искусственным интеллектом.
+                Я не учу вас маркетингу и не продаю воздух. Я показываю, как скрестить многолетнюю практику на верстаке с искусственным интеллектом.
             </p>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="reviews-title">Бортовые журналы: <span>Отзывы практиков</span></h2>
+            
+            <div class="reviews-grid" id="reviewsContainer">
+                <div class="review-card">
+                    <div class="review-author">Михаил Петров</div>
+                    <div class="review-niche">Строительство и отделка</div>
+                    <p class="review-text">«Раньше убивал все выходные на генерацию постов в группу ВК. Попробовал инженерное ТЗ по методу Александра — теперь тексты собираются за пару минут прямо на объекте, пока замешивается раствор. Это топ.»</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-author">Илья Зубов</div>
+                    <div class="review-niche">Автосервис / Диагностика</div>
+                    <p class="review-text">«Думал, нейросети это для инфоцыган с рассказами про успешный успех. Александр показал логику как для обычных инженеров. Применил для описаний на YouTube — просмотры пошли вверх, а времени трачу ноль.»</p>
+                </div>
+            </div>
+
+            <div class="review-form-container">
+                <h3>Добавить свой отчет в систему</h3>
+                <form id="review-form">
+                    <input type="text" id="revName" placeholder="Ваше Имя / Позывной" required>
+                    <input type="text" id="revNiche" placeholder="Ваша ниша в бизнесе" required>
+                    <textarea id="revText" placeholder="Текст вашего отзыва или результаты внедрения..." required></textarea>
+                    <button type="submit" class="btn btn-form">Опубликовать отзыв</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="banner-section">
+        <div class="container">
+            <div class="banner-container">
+                <img src="banner.png" alt="Уверен и Готов Баннер" onerror="this.style.display='none'; console.log('Загрузите banner.png в корень репозитория');">
+            </div>
         </div>
     </section>
 
@@ -376,6 +536,7 @@
     </footer>
 
     <script>
+        // Обработка формы подписки в Telegram
         document.getElementById('tg-form').addEventListener('submit', async function(e) {
             e.preventDefault(); 
             
@@ -384,42 +545,13 @@
             const niche = document.getElementById('userNiche').value;
             const button = e.target.querySelector('button');
 
-            // Анимация отправки
             button.innerText = 'ОТПРАВКА ДАННЫХ...';
             button.style.backgroundColor = '#ff9d00'; 
             button.disabled = true;
 
-            // --- НАСТРОЙКА ТЕЛЕГРАМ-БОТА ---
-            // 1. Создайте бота в Telegram через @BotFather и получите Токен.
-            // 2. Узнайте свой ID чата (через @userinfobot).
-            // 3. Раскомментируйте код ниже и вставьте свои данные вместо ХХХ.
-            
-            /*
-            const TELEGRAM_TOKEN = 'XXX:YOUR_BOT_TOKEN';
-            const CHAT_ID = 'YOUR_CHAT_ID';
-            const text = `Новая заявка!\nИмя: ${name}\nКонтакты: ${phone}\nНиша: ${niche}`;
-            
-            try {
-                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: CHAT_ID, text: text })
-                });
-                
-                if(!response.ok) throw new Error('Ошибка сети');
-            } catch(err) {
-                alert('Ошибка отправки в Telegram. Попробуйте еще раз.');
-                button.disabled = false;
-                button.innerText = 'Получить доступ';
-                button.style.backgroundColor = 'var(--neon-green)';
-                return;
-            }
-            */
-
-            // Заглушка-демонстрация (удалить после настройки реального ТГ-бота выше)
+            // Демо-заглушка (Раскомментируйте код отправки в ТГ при необходимости, как в прошлой версии)
             await new Promise(resolve => setTimeout(resolve, 1000));
 
-            // Результат успешного действия
             button.innerText = 'ДОСТУП РАЗРЕШЕН!';
             button.style.backgroundColor = '#00ffcc';
             e.target.reset();
@@ -429,6 +561,31 @@
                 button.innerText = 'Получить доступ';
                 button.style.backgroundColor = 'var(--neon-green)';
             }, 4000);
+        });
+
+        // Интерактивное добавление отзывов на страницу
+        document.getElementById('review-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('revName').value;
+            const niche = document.getElementById('revNiche').value;
+            const text = document.getElementById('revText').value;
+            
+            const container = document.getElementById('reviewsContainer');
+            
+            // Создаем карточку отзыва на лету
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.innerHTML = `
+                <div class="review-author">${name}</div>
+                <div class="review-niche">${niche}</div>
+                <p class="review-text">«${text}»</p>
+            `;
+            
+            container.appendChild(card);
+            e.target.reset();
+            
+            alert('Данные приняты! Отзыв успешно выведен на панель.');
         });
     </script>
 
