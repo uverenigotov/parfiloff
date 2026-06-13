@@ -123,11 +123,6 @@
             text-align: center;
         }
 
-        .btn-hero {
-            display: inline-block;
-            width: auto;
-        }
-
         .btn-form {
             width: 100%;
             margin-top: 15px;
@@ -260,9 +255,8 @@
             background: #000;
         }
 
-        /* Кнопка-баннер, появляющаяся после видео */
         .btn-video-banner {
-            display: none; /* Скрыта по умолчанию */
+            display: none; 
             width: 100%;
             margin-top: 20px;
             font-size: 1.3em;
@@ -271,14 +265,8 @@
         }
 
         @keyframes fadeInVideoBanner {
-            from {
-                opacity: 0;
-                transform: translateY(-15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- БЛОК 5: ОТЗЫВЫ ПРАКТИКОВ --- */
@@ -314,29 +302,11 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .review-author {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 5px;
-        }
+        .review-author { font-size: 1.2em; font-weight: bold; color: #fff; margin-bottom: 5px; }
+        .review-niche { font-size: 0.9em; color: var(--neon-green); margin-bottom: 15px; font-weight: bold; text-transform: uppercase; }
+        .review-text { color: var(--text-light); font-size: 1em; margin: 0; font-style: italic; }
 
-        .review-niche {
-            font-size: 0.9em;
-            color: var(--neon-green);
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .review-text {
-            color: var(--text-light);
-            font-size: 1em;
-            margin: 0;
-            font-style: italic;
-        }
-
-        .review-form-container {
+        .form-container {
             max-width: 550px;
             margin: 0 auto;
             background: rgba(0, 0, 0, 0.5);
@@ -347,15 +317,10 @@
             box-sizing: border-box;
         }
 
-        .review-form-container h3 {
-            margin-top: 0;
-            text-align: center;
-            color: #fff;
-            margin-bottom: 25px;
-        }
+        .form-container h3, .form-container h2 { margin-top: 0; text-align: center; color: #fff; margin-bottom: 25px; }
 
-        .review-form-container input,
-        .review-form-container textarea {
+        .form-container input:not([type="checkbox"]),
+        .form-container textarea {
             width: 100%;
             padding: 16px 20px;
             margin-bottom: 20px;
@@ -369,16 +334,43 @@
             transition: all 0.3s ease;
         }
 
-        .review-form-container textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
+        .form-container textarea { resize: vertical; min-height: 120px; }
 
-        .review-form-container input:focus,
-        .review-form-container textarea:focus {
+        .form-container input:not([type="checkbox"]):focus,
+        .form-container textarea:focus {
             outline: none;
             border-color: var(--neon-green);
             background: rgba(0, 255, 204, 0.05);
+        }
+
+        /* Стили для чекбокса политики конфиденциальности */
+        .privacy-label {
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .privacy-label input[type="checkbox"] {
+            margin: 3px 10px 0 0;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--neon-green);
+            cursor: pointer;
+        }
+
+        .privacy-label a {
+            color: var(--neon-green);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .privacy-label a:hover {
+            border-bottom: 1px solid var(--neon-green);
         }
 
         /* --- БЛОК 6: ФОРМА ПОДПИСКИ --- */
@@ -389,70 +381,10 @@
             border-top: 2px solid var(--neon-green);
         }
 
-        .modern-form-container {
-            max-width: 500px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 255, 204, 0.2);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            text-align: left;
-            box-sizing: border-box;
-        }
-
-        .modern-form-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .modern-form-header h2 {
-            margin: 0 0 10px 0;
-            color: #fff;
-            font-size: 2em;
-        }
-
-        .modern-form-header p {
-            color: var(--text-muted);
-            margin: 0;
-            font-size: 1.1em;
-        }
-
-        .modern-form-container input {
-            width: 100%;
-            padding: 16px 20px;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255,255,255,0.15);
-            color: white;
-            border-radius: 6px;
-            box-sizing: border-box;
-            font-size: 1.05em;
-            font-family: 'Montserrat', Arial, sans-serif;
-            transition: all 0.3s ease;
-        }
-        
-        .modern-form-container input:focus {
-            outline: none;
-            border-color: var(--neon-green);
-            background: rgba(0, 255, 204, 0.05);
-            box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
-        }
-
-        .modern-form-container input::placeholder {
-            color: #7a8c9e;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #000;
-            color: var(--text-muted);
-            font-size: 0.9em;
-        }
+        footer { text-align: center; padding: 30px; background: #000; color: var(--text-muted); font-size: 0.9em; }
 
         @media (max-width: 768px) {
-            .modern-form-container, .review-form-container { padding: 30px 20px; }
+            .form-container { padding: 30px 20px; }
             .author-grid { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
@@ -461,21 +393,18 @@
 
     <header class="hero-section">
     <div class="overlay"></div>
-    
     <video autoplay loop muted playsinline class="video-bg">
         <source src="robot_human_handshake.mp4" type="video/mp4">
     </video>
     
     <div class="container hero-content">
         <h1 class="main-title">
-            ПРОЕКТ «УВЕРЕН И ГОТОВ»<br>
-            <span class="highlight">ИИ ДЛЯ ТЕХ, КТО РАБОТАЕТ РУКАМИ И ГОЛОВОЙ</span>
+            ПРОЕКТ «УВЕРЕН И ГОТОВ».<br>
+            <span class="highlight">ИИ ДЛЯ ТЕХ, КТО РАБОТАЕТ РУКАМИ И ГОЛОВОЙ.</span>
         </h1>
-        <p class="subtitle">
-           - 10 часов рутины в неделю без курсов за 50к.
-        </p>
+        <p class="subtitle">10 часов рутины в неделю без курсов за 50к.</p>
     </div>
-</header>
+    </header>
 
     <section class="efficiency-section">
         <div class="container">
@@ -521,12 +450,10 @@
                     </p>
                 </div>
                 <div class="author-video">
-                    <!-- Добавлен id="mainWorkshopVideo" для скрипта -->
                     <video id="mainWorkshopVideo" class="workshop-video" controls playsinline preload="metadata">
                         <source src="https://raw.githubusercontent.com/uverenigotov/parfiloff/012fc985d74f931daf6ee8ae8af466bab685c5b5/workshop-tv.mp4" type="video/mp4">
                         Ваш браузер не поддерживает встроенные видео.
                     </video>
-                    <!-- Кнопка-баннер, которая появится после видео -->
                     <a href="https://vk.com/write-166142192" target="_blank" id="videoVkBanner" class="btn btn-video-banner">ХОЧУ НА РАЗБОР</a>
                 </div>
             </div>
@@ -550,12 +477,22 @@
                 </div>
             </div>
 
-            <div class="review-form-container">
+            <div class="form-container">
                 <h3>Добавить свой отчет в систему</h3>
-                <form id="review-form">
-                    <input type="text" id="revName" placeholder="Ваше Имя / Позывной" required>
-                    <input type="text" id="revNiche" placeholder="Ваша ниша в бизнесе" required>
-                    <textarea id="revText" placeholder="Текст вашего отзыва или результаты внедрения..." required></textarea>
+                <form class="ajax-form" id="review-form">
+                    <input type="hidden" name="access_key" value="ТВОЙ_КЛЮЧ_ОТ_WEB3FORMS">
+                    <input type="hidden" name="subject" value="Новый отзыв на сайте 'Уверен и Готов'">
+                    <input type="hidden" name="from_name" value="Система Отзывов">
+                    
+                    <input type="text" name="Имя_Позывной" placeholder="Ваше Имя / Позывной" required>
+                    <input type="text" name="Ниша" placeholder="Ваша ниша в бизнесе" required>
+                    <textarea name="Отзыв" placeholder="Текст вашего отзыва или результаты внедрения..." required></textarea>
+                    
+                    <label class="privacy-label">
+                        <input type="checkbox" required>
+                        <span>Я даю согласие на <a href="#">обработку персональных данных</a></span>
+                    </label>
+
                     <button type="submit" class="btn btn-form">Опубликовать отзыв</button>
                 </form>
             </div>
@@ -564,17 +501,26 @@
 
     <section class="cta-section" id="subscribe">
         <div class="container">
-            <div class="modern-form-container">
+            <div class="form-container">
                 <div class="modern-form-header">
                     <h2>Начать автоматизацию</h2>
-                    <p>Оставьте данные, чтобы получить доступ</p>
+                    <p style="color: var(--text-muted); margin-bottom: 25px; text-align: center;">Оставьте данные, чтобы получить доступ</p>
                 </div>
                 
-                <form id="tg-form">
-                    <input type="text" id="userName" placeholder="Ваше Имя / Позывной" required>
-                    <input type="tel" id="userPhone" placeholder="Телефон или Telegram" required>
-                    <input type="text" id="userNiche" placeholder="Твоя ниша (ремонт, стройка, бьюти...)" required>
+                <form class="ajax-form" id="subscribe-form">
+                    <input type="hidden" name="access_key" value="ТВОЙ_КЛЮЧ_ОТ_WEB3FORMS">
+                    <input type="hidden" name="subject" value="Новая заявка на доступ 'Уверен и Готов'">
+                    <input type="hidden" name="from_name" value="Форма Доступа">
                     
+                    <input type="text" name="Имя_Позывной" placeholder="Ваше Имя / Позывной" required>
+                    <input type="tel" name="Контакты" placeholder="Телефон или Telegram" required>
+                    <input type="text" name="Ниша" placeholder="Твоя ниша (ремонт, стройка, бьюти...)" required>
+                    
+                    <label class="privacy-label">
+                        <input type="checkbox" required>
+                        <span>Я ознакомлен и согласен с <a href="#">политикой конфиденциальности</a></span>
+                    </label>
+
                     <button type="submit" class="btn btn-form">Получить доступ</button>
                 </form>
             </div>
@@ -588,72 +534,78 @@
     </footer>
 
     <script>
-        // ЛОГИКА ДЛЯ ПОЯВЛЕНИЯ КНОПКИ ПОСЛЕ ВИДЕО
+        // Логика видео баннера
         document.addEventListener("DOMContentLoaded", function() {
             const video = document.getElementById('mainWorkshopVideo');
             const vkBanner = document.getElementById('videoVkBanner');
 
             if (video && vkBanner) {
-                // Когда видео закончилось - показываем баннер
-                video.addEventListener('ended', function() {
-                    vkBanner.style.display = 'block';
-                });
-                
-                // Если видео снова запустили (пользователь решил пересмотреть) - скрываем баннер
-                video.addEventListener('play', function() {
-                    vkBanner.style.display = 'none';
-                });
+                video.addEventListener('ended', () => vkBanner.style.display = 'block');
+                video.addEventListener('play', () => vkBanner.style.display = 'none');
             }
         });
 
-        // Обработка формы подписки в Telegram
-        document.getElementById('tg-form').addEventListener('submit', async function(e) {
-            e.preventDefault(); 
-            
-            const name = document.getElementById('userName').value;
-            const phone = document.getElementById('userPhone').value;
-            const niche = document.getElementById('userNiche').value;
-            const button = e.target.querySelector('button');
+        // Единая логика отправки на Email для обеих форм через Web3Forms
+        const forms = document.querySelectorAll('.ajax-form');
 
-            button.innerText = 'ОТПРАВКА ДАННЫХ...';
-            button.style.backgroundColor = '#ff9d00'; 
-            button.disabled = true;
+        forms.forEach(form => {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const button = form.querySelector('button');
+                const originalText = button.innerText;
 
-            await new Promise(resolve => setTimeout(resolve, 1000));
+                // Анимация кнопки
+                button.innerText = 'ОТПРАВКА ДАННЫХ...';
+                button.style.backgroundColor = '#ff9d00'; 
+                button.disabled = true;
 
-            button.innerText = 'ДОСТУП РАЗРЕШЕН!';
-            button.style.backgroundColor = '#00ffcc';
-            e.target.reset();
-            
-            setTimeout(() => {
-                button.disabled = false;
-                button.innerText = 'Получить доступ';
-                button.style.backgroundColor = 'var(--neon-green)';
-            }, 4000);
-        });
+                const formData = new FormData(form);
 
-        // Интерактивное добавление отзывов на страницу
-        document.getElementById('review-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('revName').value;
-            const niche = document.getElementById('revNiche').value;
-            const text = document.getElementById('revText').value;
-            
-            const container = document.getElementById('reviewsContainer');
-            
-            const card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML = `
-                <div class="review-author">${name}</div>
-                <div class="review-niche">${niche}</div>
-                <p class="review-text">«${text}»</p>
-            `;
-            
-            container.appendChild(card);
-            e.target.reset();
-            
-            alert('Данные приняты! Отзыв успешно выведен на панель.');
+                try {
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        button.innerText = 'УСПЕШНО ОТПРАВЛЕНО!';
+                        button.style.backgroundColor = '#00ffcc';
+                        
+                        // Если это форма отзывов — визуально добавляем карточку на экран
+                        if (form.id === 'review-form') {
+                            const name = formData.get('Имя_Позывной');
+                            const niche = formData.get('Ниша');
+                            const text = formData.get('Отзыв');
+                            const container = document.getElementById('reviewsContainer');
+                            
+                            const card = document.createElement('div');
+                            card.className = 'review-card';
+                            card.innerHTML = `
+                                <div class="review-author">${name}</div>
+                                <div class="review-niche">${niche}</div>
+                                <p class="review-text">«${text}»</p>
+                            `;
+                            container.appendChild(card);
+                        }
+
+                        form.reset();
+                    } else {
+                        button.innerText = 'ОШИБКА ОТПРАВКИ';
+                        button.style.backgroundColor = '#ff3366';
+                    }
+                } catch (error) {
+                    button.innerText = 'ОШИБКА СЕТИ';
+                    button.style.backgroundColor = '#ff3366';
+                }
+
+                // Возвращаем кнопку в исходное состояние через 4 секунды
+                setTimeout(() => {
+                    button.disabled = false;
+                    button.innerText = originalText;
+                    button.style.backgroundColor = 'var(--neon-green)';
+                }, 4000);
+            });
         });
     </script>
 
