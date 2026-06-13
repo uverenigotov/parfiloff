@@ -25,7 +25,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Плавный скролл по якорям */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -82,7 +82,7 @@
         }
 
         h1 {
-            font-size: clamp(2em, 5vw, 3.5em); /* Адаптивный размер шрифта */
+            font-size: clamp(2em, 5vw, 3.5em);
             text-transform: uppercase;
             margin-bottom: 15px;
             color: #ffffff;
@@ -200,35 +200,70 @@
 
         .bad-way { border-left-color: #ff3366; } 
 
-        /* --- БЛОК 4: АВТОР --- */
-        .author-section {
-            padding: 80px 0;
+        /* --- БЛОК ДЛЯ БАННЕРА (ПЕРЕНЕСЕН ВЫШЕ) --- */
+        .banner-section {
+            padding: 60px 0;
             background-color: var(--bg-dark);
             text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        
-        .author-content {
-            max-width: 800px;
+
+        .banner-container {
+            max-width: 900px;
             margin: 0 auto;
+            border: 2px solid rgba(0, 255, 204, 0.4);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.15);
         }
 
-        .author-content h2 {
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* --- БЛОК 4: АВТОР И ВИДЕО --- */
+        .author-section {
+            padding: 80px 0;
+            background-color: #07253d;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .author-title {
+            text-align: center;
             font-size: 2.2em;
             color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            margin-top: 0;
+        }
+
+        .author-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
 
         .author-text {
             font-size: 1.2em; 
-            color: var(--text-muted);
+            color: var(--text-light);
             margin-bottom: 20px;
+        }
+
+        .workshop-video {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            background: #000;
         }
 
         /* --- БЛОК 5: ОТЗЫВЫ ПРАКТИКОВ --- */
         .reviews-section {
             padding: 80px 0;
-            background-color: #07253d;
+            background-color: var(--bg-dark);
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -325,29 +360,6 @@
             background: rgba(0, 255, 204, 0.05);
         }
 
-        /* --- БЛОК ДЛЯ БАННЕРА --- */
-        .banner-section {
-            padding: 60px 0 20px 0;
-            background-color: var(--bg-dark);
-            text-align: center;
-        }
-
-        .banner-container {
-            max-width: 900px;
-            margin: 0 auto;
-            border: 2px solid rgba(0, 255, 204, 0.4);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 255, 204, 0.15);
-        }
-
-        .banner-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
         /* --- БЛОК 6: ФОРМА ПОДПИСКИ --- */
         .cta-section {
             background: linear-gradient(135deg, #051624 0%, #0a2740 100%);
@@ -420,6 +432,7 @@
 
         @media (max-width: 768px) {
             .modern-form-container, .review-form-container { padding: 30px 20px; }
+            .author-grid { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
 </head>
@@ -461,15 +474,33 @@
         </div>
     </section>
 
+    <section class="banner-section">
+        <div class="container">
+            <div class="banner-container">
+                <img src="banner.png" alt="Уверен и Готов Баннер" onerror="this.style.display='none'; console.log('Загрузите banner.png в корень репозитория');">
+            </div>
+        </div>
+    </section>
+
     <section class="author-section">
-        <div class="container author-content">
-            <h2>Кто такой Александр Парфилов?</h2>
-            <p class="author-text">
-                Автор проекта <strong>«Уверен и Готов»</strong> и владелец реальной мастерской электроники «Армавиртелеремонт». За плечами — <strong>20 лет практического опыта</strong> телеремонта. 
-            </p>
-            <p class="author-text">
-                Я не учу вас маркетингу и не продаю воздух. Я показываю, как скрестить многолетнюю практику на верстаке с искусственным интеллектом.
-            </p>
+        <div class="container">
+            <h2 class="author-title">Кто такой Александр Парфилов?</h2>
+            <div class="author-grid">
+                <div class="author-info">
+                    <p class="author-text">
+                        Автор проекта <strong>«Уверен и Готов»</strong> и владелец реальной мастерской электроники «Армавиртелеремонт». За плечами — <strong>20 лет практического опыта</strong> телеремонта. 
+                    </p>
+                    <p class="author-text">
+                        Я не учу вас маркетингу и не продаю воздух. Я показываю, как скрестить многолетнюю практику на верстаке с искусственным интеллектом.
+                    </p>
+                </div>
+                <div class="author-video">
+                    <video class="workshop-video" controls>
+                        <source src="workshop-tv.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -498,14 +529,6 @@
                     <textarea id="revText" placeholder="Текст вашего отзыва или результаты внедрения..." required></textarea>
                     <button type="submit" class="btn btn-form">Опубликовать отзыв</button>
                 </form>
-            </div>
-        </div>
-    </section>
-
-    <section class="banner-section">
-        <div class="container">
-            <div class="banner-container">
-                <img src="banner.png" alt="Уверен и Готов Баннер" onerror="this.style.display='none'; console.log('Загрузите banner.png в корень репозитория');">
             </div>
         </div>
     </section>
@@ -549,7 +572,7 @@
             button.style.backgroundColor = '#ff9d00'; 
             button.disabled = true;
 
-            // Демо-заглушка (Раскомментируйте код отправки в ТГ при необходимости, как в прошлой версии)
+            // Демо-заглушка (Раскомментируйте код отправки в ТГ при необходимости)
             await new Promise(resolve => setTimeout(resolve, 1000));
 
             button.innerText = 'ДОСТУП РАЗРЕШЕН!';
