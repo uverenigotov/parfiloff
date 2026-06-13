@@ -200,7 +200,7 @@
 
         .bad-way { border-left-color: #ff3366; } 
 
-        /* --- БЛОК ДЛЯ БАННЕРА (ПЕРЕНЕСЕН ВЫШЕ) --- */
+        /* --- БЛОК ДЛЯ БАННЕРА --- */
         .banner-section {
             padding: 60px 0;
             background-color: var(--bg-dark);
@@ -447,11 +447,11 @@
     
     <div class="container hero-content">
         <h1 class="main-title">
-            ПРОЕКТ «УВЕРЕН И ГОТОВ»<br>
-            <span class="highlight">ИИ ДЛЯ ТЕХ, КТО РАБОТАЕТ РУКАМИ И ГОЛОВОЙ</span>
+            ПРОЕКТ «УВЕРЕН И ГОТОВ».<br>
+            <span class="highlight">ИИ ДЛЯ ТЕХ, КТО РАБОТАЕТ РУКАМИ И ГОЛОВОЙ.</span>
         </h1>
         <p class="subtitle">
-            - 10 часов рутины в неделю без курсов за 50к.
+            10 часов рутины в неделю без курсов за 50к.
         </p>
     </div>
 </header>
@@ -501,7 +501,7 @@
                 </div>
                 <div class="author-video">
                     <video class="workshop-video" controls playsinline preload="metadata">
-                        <source src="workshop-tv.mp4" type="video/mp4">
+                        <source src="https://raw.githubusercontent.com/uverenigotov/parfiloff/012fc985d74f931daf6ee8ae8af466bab685c5b5/workshop-tv.mp4" type="video/mp4">
                         Ваш браузер не поддерживает встроенные видео.
                     </video>
                 </div>
@@ -577,7 +577,6 @@
             button.style.backgroundColor = '#ff9d00'; 
             button.disabled = true;
 
-            // Демо-заглушка (Раскомментируйте код отправки в ТГ при необходимости)
             await new Promise(resolve => setTimeout(resolve, 1000));
 
             button.innerText = 'ДОСТУП РАЗРЕШЕН!';
@@ -601,7 +600,6 @@
             
             const container = document.getElementById('reviewsContainer');
             
-            // Создаем карточку отзыва на лету
             const card = document.createElement('div');
             card.className = 'review-card';
             card.innerHTML = `
