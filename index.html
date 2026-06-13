@@ -260,6 +260,27 @@
             background: #000;
         }
 
+        /* Кнопка-баннер, появляющаяся после видео */
+        .btn-video-banner {
+            display: none; /* Скрыта по умолчанию */
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1.3em;
+            padding: 20px;
+            animation: fadeInVideoBanner 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInVideoBanner {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* --- БЛОК 5: ОТЗЫВЫ ПРАКТИКОВ --- */
         .reviews-section {
             padding: 80px 0;
@@ -447,11 +468,11 @@
     
     <div class="container hero-content">
         <h1 class="main-title">
-            ПРОЕКТ «УВЕРЕН И ГОТОВ»<br>
-            <span class="highlight">ИИ ДЛЯ ТЕХ, КТО РАБОТАЕТ РУКАМИ И ГОЛОВОЙ</span>
+            ПРОЕКТ «УВЕРЕН И ГОТОВ».<br>
+            <span class="highlight">ИИ ДЛЯ ТЕХ, КТО РАБОТАЕТ РУКАМИ И ГОЛОВОЙ.</span>
         </h1>
         <p class="subtitle">
-            -10 часов рутины в неделю без курсов за 50к.
+            10 часов рутины в неделю без курсов за 50к.
         </p>
     </div>
 </header>
@@ -500,10 +521,13 @@
                     </p>
                 </div>
                 <div class="author-video">
-                    <video class="workshop-video" controls playsinline preload="metadata">
+                    <!-- Добавлен id="mainWorkshopVideo" для скрипта -->
+                    <video id="mainWorkshopVideo" class="workshop-video" controls playsinline preload="metadata">
                         <source src="https://raw.githubusercontent.com/uverenigotov/parfiloff/012fc985d74f931daf6ee8ae8af466bab685c5b5/workshop-tv.mp4" type="video/mp4">
                         Ваш браузер не поддерживает встроенные видео.
                     </video>
+                    <!-- Кнопка-баннер, которая появится после видео -->
+                    <a href="https://vk.com/write-166142192" target="_blank" id="videoVkBanner" class="btn btn-video-banner">ХОЧУ НА РАЗБОР</a>
                 </div>
             </div>
         </div>
@@ -564,6 +588,24 @@
     </footer>
 
     <script>
+        // ЛОГИКА ДЛЯ ПОЯВЛЕНИЯ КНОПКИ ПОСЛЕ ВИДЕО
+        document.addEventListener("DOMContentLoaded", function() {
+            const video = document.getElementById('mainWorkshopVideo');
+            const vkBanner = document.getElementById('videoVkBanner');
+
+            if (video && vkBanner) {
+                // Когда видео закончилось - показываем баннер
+                video.addEventListener('ended', function() {
+                    vkBanner.style.display = 'block';
+                });
+                
+                // Если видео снова запустили (пользователь решил пересмотреть) - скрываем баннер
+                video.addEventListener('play', function() {
+                    vkBanner.style.display = 'none';
+                });
+            }
+        });
+
         // Обработка формы подписки в Telegram
         document.getElementById('tg-form').addEventListener('submit', async function(e) {
             e.preventDefault(); 
