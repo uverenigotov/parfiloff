@@ -442,7 +442,7 @@
     <div class="overlay"></div>
     
     <video autoplay loop muted playsinline class="video-bg">
-        <source src="hand-robot.mp4" type="video/mp4">
+        <source src="robot_human_handshake.mp4" type="video/mp4">
     </video>
     
     <div class="container hero-content">
@@ -482,7 +482,7 @@
     <section class="banner-section">
         <div class="container">
             <div class="banner-container">
-                <img src="banner.png" alt="Уверен и Готов Баннер" onerror="this.style.display='none'; console.log('Загрузите banner.png в корень репозитория');">
+                <img src="banner.png" alt="Уверен и Готов Баннер" loading="lazy">
             </div>
         </div>
     </section>
@@ -500,8 +500,9 @@
                     </p>
                 </div>
                 <div class="author-video">
-                    <video class="workshop-video" controls>
+                    <video class="workshop-video" controls playsinline preload="metadata">
                         <source src="workshop-tv.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает встроенные видео.
                     </video>
                 </div>
             </div>
