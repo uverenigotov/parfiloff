@@ -387,6 +387,85 @@
             .form-container { padding: 30px 20px; }
             .author-grid { grid-template-columns: 1fr; text-align: center; }
         }
+   /* ========================================== */
+/* СТИЛИ ДЛЯ БЛОКА "АНАЛИЗ ПРОИЗВОДИТЕЛЬНОСТИ"*/
+/* ========================================== */
+.efficiency-metrics-section {
+    padding: 4rem 2rem;
+    background-color: transparent; 
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.metric-card {
+    background: rgba(0, 0, 0, 0.3); /* Эффект стеклянной приборной панели */
+    border: 1px solid #1a5276;
+    padding: 2.5rem 2rem;
+    border-radius: 4px;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Оранжевый маркер для старого подхода */
+.metric-card.bad-approach {
+    border-left: 4px solid #ff9d00;
+}
+
+/* Зеленый маркер для нашего подхода */
+.metric-card.good-approach {
+    border-left: 4px solid #00FF41;
+}
+
+.metric-header {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.bad-approach .metric-header {
+    color: #ff9d00;
+}
+
+.good-approach .metric-header {
+    color: #00FF41;
+}
+
+.metric-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.metric-list li {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
     </style>
 </head>
 <body>
@@ -498,7 +577,32 @@
             </div>
         </div>
     </section>
+<section class="efficiency-metrics-section">
+    <div class="container">
+        <h2 class="section-title"> Анализ производительности</h2>
+        <p class="section-subtitle">Математика эффективности. Что меняется на верстаке после внедрения ИИ.</p>
 
+        <div class="metrics-grid">
+            <div class="metric-card bad-approach">
+                <div class="metric-header">[ ДО ВНЕДРЕНИЯ ]</div>
+                <ul class="metric-list">
+                    <li><span class="icon">❌</span> 2 часа на один пост для ВК</li>
+                    <li><span class="icon">❌</span> Пластиковый текст от "маркетолога"</li>
+                    <li><span class="icon">❌</span> Вечные правки и потеря времени</li>
+                </ul>
+            </div>
+
+            <div class="metric-card good-approach">
+                <div class="metric-header">[ ПОСЛЕ ВНЕДРЕНИЯ ]</div>
+                <ul class="metric-list">
+                    <li><span class="icon">✅</span> 10 секунд на генерацию ТЗ</li>
+                    <li><span class="icon">✅</span> Живой, понятный язык мастера</li>
+                    <li><span class="icon">✅</span> Готовый результат с первого раза</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
     <section class="cta-section" id="subscribe">
         <div class="container">
             <div class="form-container">
