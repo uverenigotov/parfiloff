@@ -13,7 +13,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    
+
+    <!-- Яндекс.Метрика, счётчик 109843126 -->
+    <script type="text/javascript">
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(109843126, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/109843126" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Яндекс.Метрика -->
+
     <style>
         /* Суровый индустриальный дизайн: глубокий синий, графит и неон */
         :root {
@@ -675,6 +693,11 @@
                     if (response.ok) {
                         button.innerText = 'УСПЕШНО ОТПРАВЛЕНО!';
                         button.style.backgroundColor = '#00ffcc';
+
+                        // Цель Яндекс.Метрики: считаем конверсией только подписку (форму получения доступа)
+                        if (form.id === 'subscribe-form' && typeof ym !== 'undefined') {
+                            ym(109843126, 'reachGoal', 'subscribe_lead');
+                        }
                         
                         // Если это форма отзывов — визуально добавляем карточку на экран
                         if (form.id === 'review-form') {
